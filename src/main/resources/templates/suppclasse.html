@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suppressions Classes</title>
+</head>
+<body>
+<h2>Cette classe a été supprimée</h2>
+<table border="1">
+  <th>ID</th>
+  <th>SIGLE</th>
+  <th>ANNEE</th>
+  <th>SPECIALITE</th>
+  <th>NBRELEVES</th>
+  <tr>
+    <td th:text="${suppcla.idclasse}"/>
+    <td th:text="${suppcla.sigle}"/>
+    <td th:text="${suppcla.annee}"/>
+    <td th:text="${suppcla.specialite}"/>
+    <td th:text="${suppcla.nbreleves}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>

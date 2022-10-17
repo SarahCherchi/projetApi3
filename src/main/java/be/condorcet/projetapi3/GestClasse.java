@@ -80,12 +80,12 @@ public class GestClasse {
         try {
             Classe cl = classeServiceImpl.read(idclasse);
             classeServiceImpl.delete(cl);
-            model.put("macla",cl);
+            model.put("suppcla",cl);
         }catch (Exception e) {
             System.out.println("----------erreur lors de la recherche ----- --- " + e);
             model.put("error",e.getMessage());
             return "error";
         }
-        return "affclasse";
+        return "suppclasse";
     }
 }
