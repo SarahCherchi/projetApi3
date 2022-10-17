@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infos Classes</title>
+</head>
+<body>
+<table border="1">
+  <th>ID</th>
+  <th>SIGLE</th>
+  <th>ANNEE</th>
+  <th>SPECIALITE</th>
+  <th>NBRELEVES</th>
+  <tr>
+    <td th:text="${macla.idclasse}"/>
+    <td th:text="${macla.sigle}"/>
+    <td th:text="${macla.annee}"/>
+    <td th:text="${macla.specialite}"/>
+    <td th:text="${macla.nbreleves}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>

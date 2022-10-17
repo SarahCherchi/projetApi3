@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nouvelle Classe</title>
+</head>
+<body>
+<table border="1">
+  <th>ID</th>
+  <th>SIGLE</th>
+  <th>ANNEE</th>
+  <th>SPECIALITE</th>
+  <tr>
+    <td th:text="${nouvcla.idclasse}"/>
+    <td th:text="${nouvcla.sigle}"/>
+    <td th:text="${nouvcla.annee}"/>
+    <td th:text="${nouvcla.specialite}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACCUEIL</title>
+</head>
+<body>
+<h1> bienvenue dans la gestion des classes</h1>
+<h2>CLASSE</h2>
+<h3>Afficher toutes les classes</h3>
+<p><a href="classes/tous">voir toutes les classes</a></p>
+<h3>Créer une classe</h3>
+<p><form action = "classes/create" method="get">
+  sigle : <input type = "text" name="sigle"> <br>
+  année : <input type = "number" name="annee"> <br>
+  spécialité : <input type = "text" name="specialite"> <br>
+  <input type="submit" name="ok" value="ok">
+</form>
+</p>
+<h3>Recherche d'une classe</h3>
+<p><form action ="classes/read" method="get">
+  idclasse : <input type="text" name = "idclasse"> <br>
+  <input type="submit" name="ok" value="ok"></form>
+</p>
+<h3>Modifier le nombre d'élèves</h3>
+<p><form action ="classes/update" method="get">
+  idclasse : <input type="text" name = "idclasse"> <br>
+  nombre d'élèves : <input type = "number" name="nbreleves"> <br>
+  <input type="submit" name="ok" value="ok"></form>
+</p>
+<h3>Supprimer une classe</h3>
+<p><form action ="classes/delete" method="get">
+  idclasse : <input type="text" name = "idclasse"> <br>
+  <input type="submit" name="ok" value="ok"></form>
+</p>
+</body>
+</html>
+<!--http://localhost:5000/ -->
