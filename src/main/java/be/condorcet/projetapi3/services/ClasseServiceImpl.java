@@ -30,6 +30,7 @@ public class ClasseServiceImpl implements InterfClasseService{
     }
     @Override
     public Classe update(Classe classe) throws Exception {
+        read(classe.getIdclasse());
         classeRepository.save(classe);
         return classe;
     }
@@ -41,4 +42,6 @@ public class ClasseServiceImpl implements InterfClasseService{
     public List<Classe> all() throws Exception {
         return classeRepository.findAll();
     }
+
 }
+

@@ -1,6 +1,8 @@
 package be.condorcet.projetapi3.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -22,6 +24,11 @@ public class Classe {
     @NonNull
     private String specialite;
     private Integer nbreleves;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "classe" , fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<Infos> infos;
 
 }
 
