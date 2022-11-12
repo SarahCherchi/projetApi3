@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.security.interfaces.DSAKey;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,18 +71,35 @@ class SalleServiceImplTest {
     @Test
     void update() {
         try{
-
+            sl.setSigle("SigleTest2");
+            sl.setCapacite(35);
+            sl = salleServiceImpl.update(sl);
+            assertEquals("SigleTest2",sl.getSigle(),"sigles différents "+"SigleTest2-"+sl.getSigle());
+            assertEquals(35,sl.getCapacite(),"capacité différentes "+"35-"+sl.getCapacite());
         }
         catch (Exception e){
-
+            fail("erreur de mise à jour "+e);
         }
     }
 
     @Test
     void delete() {
+        try{
+            salleServiceImpl.delete(sl);
+            Assertions.assertThrows(Exception.class, () -> {salleServiceImpl.read(sl.getIdsalle());},"record non effacé");
+        }
+        catch(Exception e){
+            fail("erreur d'effacement "+e);
+        }
     }
 
     @Test
     void all() {
+        try {
+            List<Salle> lsl = salleServiceImpl.all();
+            assertNotEquals(0,lsl.size(),"la liste ne contient aucun élément");
+        }catch (Exception e){
+            fail("erreur de recherche de toutes les salles "+e);
+        }
     }
 }

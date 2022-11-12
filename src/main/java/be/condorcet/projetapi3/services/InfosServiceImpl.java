@@ -41,7 +41,7 @@ public class InfosServiceImpl implements InterfInfosService{
     }
     @Override
     public Infos read(Classe cl, Cours cr) {
-        return infosRepository.findInfosByClasseanAndAndCours(cl,cr);
+        return infosRepository.findInfosByClasseAndCours(cl,cr);
     }
 
     @Override

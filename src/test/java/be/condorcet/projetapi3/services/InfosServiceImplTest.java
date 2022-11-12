@@ -59,10 +59,7 @@ class InfosServiceImplTest {
     @Test
     void create() {
         assertNotEquals(0,inf.getClasse(),"numéro de la classe non incrémenté");
-        // à voir comment faire avec une classe d'association
-        // problème ede comparaison d'un int avec un objet de type Classe
-        // Pas de numéro qui correspond à une infos
-        // Clé primaire de infos Classe + Cours ! peut être creer cours avant à voir
+
     }
 
     @Test

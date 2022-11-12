@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface InfosRepository extends JpaRepository<Infos,Integer> {
-    public Infos findInfosByClasseanAndAndCours(Classe cl, Cours cr);
+    public Infos findInfosByClasseAndCours(Classe cl, Cours cr);
     public List <Infos> findInfosByEnseignant(Enseignant ens);
 
 }
