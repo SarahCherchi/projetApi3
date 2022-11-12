@@ -2,8 +2,7 @@ package be.condorcet.projetapi3.services;
 
 import java.util.List;
 
-import be.condorcet.projetapi3.entities.Classe;
-import be.condorcet.projetapi3.entities.Infos;
+import be.condorcet.projetapi3.entities.*;
 import be.condorcet.projetapi3.repositories.ClasseRepository;
 import be.condorcet.projetapi3.repositories.InfosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,13 @@ public class InfosServiceImpl implements InterfInfosService{
         return infosRepository.findAll();
     }
     @Override
-    public List<Infos> getInfos(Classe cl) {
-        List<Infos> linf = infosRepository.findInfosByClasse(cl);
+    public Infos read(Classe cl, Cours cr) {
+        return infosRepository.findInfosByClasseanAndAndCours(cl,cr);
+    }
+
+    @Override
+    public List<Infos> getInfos(Enseignant ens) {
+        List<Infos> linf = infosRepository.findInfosByEnseignant(ens);
         return linf;
     }
 

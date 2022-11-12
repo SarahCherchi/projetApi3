@@ -15,7 +15,7 @@ public class ClasseServiceImpl implements InterfClasseService{
     @Autowired
     private ClasseRepository classeRepository;
     @Override
-    public List<Classe> read(String sigle) {
+    public Classe read(String sigle) {
         return classeRepository.findClasseBySigleLike(sigle+"%");
     }
     @Override

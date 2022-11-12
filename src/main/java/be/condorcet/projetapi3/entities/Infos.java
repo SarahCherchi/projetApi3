@@ -16,8 +16,25 @@ public class Infos {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="infos_generator")
     @SequenceGenerator(name = "infos_generator", sequenceName = "APIINFOS_SEQ", allocationSize = 1)
     private Integer nbrHeures;
+
     @NonNull
     @ManyToOne
     @JoinColumn(name = "IDCLASSE")
     private Classe classe;
+
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "IDCOURS")
+    private Cours cours;
+
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "IDSALLE")
+    private Salle salle;
+
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "IDENSEIGNANT")
+    private Enseignant enseignant;
+
 }
