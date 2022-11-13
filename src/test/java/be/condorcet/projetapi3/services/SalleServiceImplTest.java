@@ -1,5 +1,6 @@
 package be.condorcet.projetapi3.services;
 
+import be.condorcet.projetapi3.entities.Cours;
 import be.condorcet.projetapi3.entities.Salle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -18,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class SalleServiceImplTest {
     @Autowired
     private SalleServiceImpl salleServiceImpl;
+    @Autowired
+    private CoursServiceImpl coursServiceImpl;
 
     Salle sl;
 
@@ -90,6 +93,20 @@ class SalleServiceImplTest {
         }
         catch(Exception e){
             fail("erreur d'effacement "+e);
+        }
+    }
+
+    @Test
+    void delAvecCours(){
+        try{
+            Cours cr = new Cours(null,"CodeTest","IntituleTest",sl);
+            coursServiceImpl.create(cr);
+            Assertions.assertThrows(Exception.class, () -> { salleServiceImpl.delete(sl);
+            },"effacement réalisé malgré cours lié");
+            coursServiceImpl.delete(cr);
+        }
+        catch (Exception e){
+            fail("erreur de création de la salle "+e);
         }
     }
 

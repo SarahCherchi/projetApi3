@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,7 +86,6 @@ class CoursServiceImplTest {
         catch(Exception e){
             fail("erreur de mise à jour "+e);
         }
-
     }
 
     @Test
@@ -108,5 +108,23 @@ class CoursServiceImplTest {
             fail("erreur de recherche de tous les cours "+e);
         }
 
+    }
+
+    @Test
+    void affCollection(){
+        try {
+            Collection<Cours> lco = coursServiceImpl.getCours(sl);
+            boolean trouve = false;
+            for(Cours co:lco){
+                if(co.getIdcours()==cr.getIdcours()){
+                    trouve=true;
+                    break;
+                }
+            }
+            assertTrue(trouve,"cours absent de la liste de la salle");
+        }
+        catch(Exception e){
+            fail("Erreur de recherche "+e);
+        }
     }
 }

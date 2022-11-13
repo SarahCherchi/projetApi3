@@ -21,7 +21,7 @@ public class CoursServiceImpl implements InterfCoursService{
         return coursRepository.findCoursByCode(code);
     }
     @Override
-    public List<Cours> getSalle(Salle sl){
+    public List<Cours> getCours(Salle sl){
         List<Cours> lcr = coursRepository.findCoursBySalle(sl);
         return lcr;
     }

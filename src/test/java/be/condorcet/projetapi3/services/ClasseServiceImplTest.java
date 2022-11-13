@@ -1,6 +1,9 @@
 package be.condorcet.projetapi3.services;
 
 import be.condorcet.projetapi3.entities.Classe;
+import be.condorcet.projetapi3.entities.Cours;
+import be.condorcet.projetapi3.entities.Infos;
+import be.condorcet.projetapi3.entities.Salle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,9 +20,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClasseServiceImplTest {
     @Autowired
     private  ClasseServiceImpl classeServiceImpl;
-
     @Autowired
     private InfosServiceImpl infosServiceImpl;
+    @Autowired
+    private SalleServiceImpl salleServiceImpl;
+    @Autowired
+    private CoursServiceImpl coursServiceImpl;
 
     Classe cl;
 
@@ -97,6 +103,31 @@ class ClasseServiceImplTest {
         }
         catch(Exception e){
             fail("erreur d'effacement "+e);
+        }
+    }
+    //@Test
+    // ne fonctionne pas correctement, les données ne se suppriment pas des tables à la fin du test
+    void delAvecInfos(){
+        try{
+            Salle sl= new Salle(null,"SigleTest",17,new ArrayList<>());
+            salleServiceImpl.create(sl);
+            Cours cr = new Cours(null,"CodeTest","IntituleTest",sl);
+            coursServiceImpl.create(cr);
+            Infos inf = new Infos(2,cl,cr,null,null);
+            infosServiceImpl.create(inf);
+
+            Assertions.assertThrows(Exception.class, () -> {
+                salleServiceImpl.delete(sl);
+            },"effacement réalisé malgré cours liées");
+            coursServiceImpl.delete(cr);
+
+            Assertions.assertThrows(Exception.class, () -> {
+                classeServiceImpl.delete(cl);
+            },"effacement réalisé malgré infos liées");
+
+            infosServiceImpl.delete(inf);
+        }catch (Exception e){
+            fail("erreur de création d'infos"+ e);
         }
     }
     @Test
