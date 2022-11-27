@@ -15,6 +15,7 @@ public class Infos {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="infos_generator")
     @SequenceGenerator(name = "infos_generator", sequenceName = "APIINFOS_SEQ", allocationSize = 1)
+    //il faut modifier car nbrheures n'est pas l'id
     private Integer nbrheures;
 
     @NonNull
