@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "APICLASSE", schema = "ORA2", catalog = "ORCL")
 public class Classe {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "classe_generator")
     @SequenceGenerator(name="classe_generator", sequenceName = "APICLASSE_SEQ", allocationSize=1)
