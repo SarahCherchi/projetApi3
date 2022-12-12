@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*",exposedHeaders = "*")
 @RestController
 @RequestMapping("/salles")
 public class RestSalle {
@@ -25,9 +26,9 @@ public class RestSalle {
     }
 
     @RequestMapping(value = "/sigle={sigle}", method = RequestMethod.GET)
-    public ResponseEntity<Salle> getSigle(@PathVariable(value = "sigle") String sigle) throws Exception {
+    public ResponseEntity<List<Salle>> getSigle(@PathVariable(value = "sigle") String sigle) throws Exception {
         System.out.println("recherche de " + sigle);
-        Salle salle = salleServiceImpl.read(sigle);
+        List<Salle> salle = salleServiceImpl.read(sigle);
         return new ResponseEntity<>(salle, HttpStatus.OK);
     }
 

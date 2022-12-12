@@ -5,7 +5,8 @@ import be.condorcet.projetapi3.entities.Salle;
 import java.util.List;
 
 public interface InterfSalleService extends InterfService<Salle> {
-    public Salle read(String sigle);
+   //public Salle read(String sigle);
+    public List<Salle> read(String sigle);
 
 }
 

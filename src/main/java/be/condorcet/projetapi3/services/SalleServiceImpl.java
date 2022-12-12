@@ -16,9 +16,14 @@ public class SalleServiceImpl implements InterfSalleService{
     private SalleRepository salleRepository;
 
     @Override
+    public List<Salle> read(String sigle) {
+        return salleRepository.findSallesBySigleLike(sigle+"%");
+    }
+
+  /*  @Override
     public Salle read(String sigle) {
         return salleRepository.findSalleBySigle(sigle);
-    }
+    }*/
 
     @Override
     public Salle create(Salle salle) throws Exception {
