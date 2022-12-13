@@ -20,6 +20,7 @@ public class Salle {
     private Integer idsalle;
     @NonNull
     private String sigle;
+    @NonNull
     private Integer capacite;
     @JsonIgnore
     @OneToMany(mappedBy = "salle" , fetch = FetchType.LAZY)
