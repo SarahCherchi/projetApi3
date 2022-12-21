@@ -20,6 +20,6 @@ public class Cours {
     private String intitule;
     @NonNull
     @ManyToOne
-    @JoinColumn(name = "IDSalle")
+    @JoinColumn(name = "IDSALLE")
     private Salle salle;
 }
