@@ -25,11 +25,11 @@ public class Infos {
 
     @NonNull
     @ManyToOne
-    @JoinColumn(name = "IDCOURS")
+    @JoinColumn(name = "IDCOURSs")
     private Cours cours;
 
     @ManyToOne
-    @JoinColumn(name = "IDSALLE")
+    @JoinColumn(name = "IDSALLEs")
     private Salle salle;
 
     @ManyToOne

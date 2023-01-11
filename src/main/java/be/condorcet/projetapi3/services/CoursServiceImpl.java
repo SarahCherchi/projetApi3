@@ -20,6 +20,11 @@ public class CoursServiceImpl implements InterfCoursService{
     public Cours read(String code) {
         return coursRepository.findCoursByCode(code);
     }
+
+    @Override
+    public List<Cours> readIntitu(String intitule) {
+        return coursRepository.findCoursByIntituleLike(intitule+"%");
+    }
     @Override
     public List<Cours> getCours(Salle sl){
         List<Cours> lcr = coursRepository.findCoursBySalle(sl);

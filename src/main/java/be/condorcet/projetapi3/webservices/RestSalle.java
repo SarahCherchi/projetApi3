@@ -1,5 +1,6 @@
 package be.condorcet.projetapi3.webservices;
 
+import be.condorcet.projetapi3.entities.Cours;
 import be.condorcet.projetapi3.entities.Salle;
 import be.condorcet.projetapi3.services.InterfSalleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,20 @@ public class RestSalle {
         return new ResponseEntity<>(salle, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/capacite={capacite}", method = RequestMethod.GET)
+    public ResponseEntity<List<Salle>> getCapacite(@PathVariable(value = "capacite") int capacite) throws Exception {
+        System.out.println("recherche d'une capacite de " + capacite);
+        List<Salle> salle = salleServiceImpl.readCap(capacite);
+        return new ResponseEntity<>(salle, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/intitule={intitule}", method = RequestMethod.GET)
+    public ResponseEntity<List<Salle>> getSalleCours(@PathVariable(value = "intitule") String intitule) throws Exception {
+        System.out.println("recherche de " + intitule);
+        List<Salle> salle = salleServiceImpl.readIntuti(intitule);
+        return new ResponseEntity<>(salle, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/all",method = RequestMethod.GET)
     public ResponseEntity<List<Salle>> listSalle() throws Exception{
         System.out.println("recherche de toutes les salles");
@@ -53,8 +68,7 @@ public class RestSalle {
         return new ResponseEntity<>(slact, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE
-    )
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteSalle(@PathVariable(value = "id") int id) throws Exception{
         System.out.println("effacement de la salle d'id " + id);
         Salle salle = salleServiceImpl.read(id);

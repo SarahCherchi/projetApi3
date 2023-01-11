@@ -30,6 +30,13 @@ public class RestCours {
         return new ResponseEntity<>(cr, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/intitule={intitule}", method = RequestMethod.GET)
+    public ResponseEntity<List<Cours>> getIntitule(@PathVariable(value = "intitule") String intitule) throws Exception {
+        System.out.println("recherche de " + intitule);
+        List<Cours> cours = coursServiceImpl.readIntitu(intitule);
+        return new ResponseEntity<>(cours, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/idsalle={id}", method = RequestMethod.GET)
     public ResponseEntity<List<Cours>> getCoursSalle(@PathVariable(value = "id") int id)  throws Exception{
         System.out.println("recherche des cours dans la salle d'id " + id);

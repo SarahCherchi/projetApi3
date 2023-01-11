@@ -1,9 +1,9 @@
 package be.condorcet.projetapi3.services;
 
+import be.condorcet.projetapi3.entities.Cours;
 import be.condorcet.projetapi3.entities.Salle;
 import be.condorcet.projetapi3.repositories.SalleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -18,6 +18,16 @@ public class SalleServiceImpl implements InterfSalleService{
     @Override
     public List<Salle> read(String sigle) {
         return salleRepository.findSallesBySigleLike(sigle+"%");
+    }
+
+    @Override
+    public List<Salle> readCap(Integer capacite) {
+       return salleRepository.findSalleByCapacite(capacite);
+    }
+
+    @Override
+    public List<Salle> readIntuti(String intitule) {
+        return salleRepository.findSalleByCoursLike(intitule+"%");
     }
 
   /*  @Override

@@ -9,5 +9,6 @@ import java.util.List;
 public interface CoursRepository extends JpaRepository<Cours,Integer> {
     public Cours findCoursByCode(String code);
     public List<Cours> findCoursBySalle(Salle salle);
+    List <Cours> findCoursByIntituleLike(String intitule);
 
 }
